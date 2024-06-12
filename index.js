@@ -12,7 +12,8 @@ app
 .use(cors())
 .use(Router)
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server running on port ${process.env.PORT}`)
+const port = process.env.PORT || 4000
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`)
 })
 
