@@ -10,4 +10,5 @@ const conn = mysql.createConnection({
     database: process.env.DB_DBNAME
 })
 
+conn.end()
 export default conn
