@@ -1,7 +1,7 @@
 import conn from '../config/database.js'
 
 export const getGroups = (result) => {
-    conn.query("SELECT * FROM groups ", (err, results) => {
+    conn.query("SELECT * FROM `groups`", (err, results) => {
         if (err) {
             result(err, null)
         } else {
@@ -11,7 +11,7 @@ export const getGroups = (result) => {
 }
 
 export const getGroupById = (id, result) => {
-    conn.query("SELECT * FROM groups WHERE id = ?", [id], (err, results) => {
+    conn.query("SELECT * FROM `groups` WHERE id = ?", [id], (err, results) => {
         if (err) {
             result(err, null)
         } else {
@@ -21,7 +21,7 @@ export const getGroupById = (id, result) => {
 }
 
 export const insertGroup = (data, result) => {
-    conn.query("INSERT INTO groups (id, name, id_plan_training) VALUES (NULL, ?, ?)", [data.name, data.planTraining], (err, results) => {
+    conn.query("INSERT INTO `groups` (id, name, id_plan_training) VALUES (NULL, ?, ?)", [data.name, data.planTraining], (err, results) => {
         if (err) {
             console.log(err)
             result(err, null)
@@ -43,7 +43,7 @@ export const updateGroupById = (data, id, result) => {
 }
 
 export const deleteGroupById = (id, result) => {
-    conn.query("DELETE FROM groups WHERE id =?", [id], (err, results) => {
+    conn.query("DELETE FROM `groups` WHERE id =?", [id], (err, results) => {
         if(err) {
             result(err, null)
         } else {
